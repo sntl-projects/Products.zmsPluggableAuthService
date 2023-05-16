@@ -24,7 +24,12 @@ $Id$
 import logging
 import re
 
-from urllib.parse import quote
+try:
+  from urllib.parse import quote
+except ImportError:
+  # Py2
+  from urllib import quote
+
 
 from AccessControl.SecurityInfo import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
@@ -191,7 +196,7 @@ class ZMSPASSsoPlugin(Folder, BasePlugin):
             coder = TimedSerializer(secret_key=self.getSecretKey(),salt=self.SALT)
             if token:
                 if isinstance(token,str):
-                    token = bytes(token,'utf-8')
+                    token = token.decode('utf-8')
                 d = coder.loads(token)
         except:
             logger.exception("can't decrypt token")

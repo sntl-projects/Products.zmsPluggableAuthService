@@ -16,8 +16,8 @@ setup(
     python_requires='>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*',
     install_requires=[
         'six',
-        'Products.PluggableAuthService',
-        'Zope',
+        'Products.PluggableAuthService==1.11.0',
+        'Zope2==2.13.24',
         'cryptography',
         # 'AccessControl',
         # 'Products.PageTemplates'

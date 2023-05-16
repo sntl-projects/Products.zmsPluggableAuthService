@@ -23,7 +23,12 @@ $Id$
 
 from __future__ import absolute_import
 from __future__ import print_function
-from base64 import encodebytes, decodebytes
+try:
+    from base64 import encodebytes, decodebytes
+except ImportError:
+    # Py2
+    from base64 import encodestring as encodebytes
+    from base64 import decodestring as decodebytes
 import binascii
 from binascii import Error
 from six.moves.urllib.parse import quote, unquote

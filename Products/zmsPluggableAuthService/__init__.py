@@ -21,7 +21,7 @@ from AccessControl.Permissions import manage_users as ManageUsers
 
 from Products.PluggableAuthService.PluggableAuthService import registerMultiPlugin
 
-from .plugins import ZMSPASCookieAuthHelper, ZMSPASSsoPlugin, ZMSPASRolePlugin, ZMSPASUserPlugin
+from Products.zmsPluggableAuthService.plugins import ZMSPASCookieAuthHelper, ZMSPASSsoPlugin, ZMSPASRolePlugin, ZMSPASUserPlugin
 
 registerMultiPlugin(ZMSPASCookieAuthHelper.ZMSPASCookieAuthHelper.meta_type)
 registerMultiPlugin(ZMSPASSsoPlugin.ZMSPASSsoPlugin.meta_type)
@@ -36,7 +36,7 @@ def initialize(context):
                             ZMSPASSsoPlugin.manage_addZMSPASSsoPluginForm,
                             ZMSPASSsoPlugin.addZMSPASSsoPlugin, )
                          , visibility=None
-                         , icon='plugins/www/CookieAuthHelper.gif'
+                         , icon='plugins/www/plug.svg'
                          )
 
     context.registerClass( ZMSPASCookieAuthHelper.ZMSPASCookieAuthHelper
@@ -45,7 +45,7 @@ def initialize(context):
                             ZMSPASCookieAuthHelper.manage_addZMSPASCookieAuthHelperForm,
                             ZMSPASCookieAuthHelper.addZMSPASCookieAuthHelper, )
                          , visibility=None
-                         , icon='plugins/www/CookieAuthHelper.gif'
+                         , icon='plugins/www/plug.svg'
                          )
 
     context.registerClass( ZMSPASRolePlugin.ZMSPASRolePlugin
@@ -54,7 +54,7 @@ def initialize(context):
                             ZMSPASRolePlugin.manage_addZMSPASRolePluginForm,
                             ZMSPASRolePlugin.addZMSPASRolePlugin, )
                          , visibility=None
-                         , icon='plugins/www/ZODBRoleManager.gif'
+                         , icon='plugins/www/plug.svg'
                          )
 
     context.registerClass( ZMSPASUserPlugin.ZMSPASUserPlugin
@@ -63,5 +63,5 @@ def initialize(context):
                             ZMSPASUserPlugin.manage_addZMSPASUserPluginForm,
                             ZMSPASUserPlugin.addZMSPASUserPlugin, )
                          , visibility=None
-                         , icon='plugins/www/ZODBUserManager.gif'
+                         , icon='plugins/www/plug.svg'
                          )
